@@ -1,0 +1,23 @@
+{
+    "name": "boolive/basic",
+    "type": "library",
+    "description": "Package of basic objects",
+    "keywords": ["boolive","package","basic"],
+    "homepage": "http://boolive.ru",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vladimir Shestakov",
+            "email": "boolive@yandex.ru"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "boolive/core": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "../.."
+        }
+    }
+}
