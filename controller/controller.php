@@ -32,6 +32,6 @@ class controller extends Entity
 
     function work()
     {
-
+        return $this->uri();
     }
 }
