@@ -6,16 +6,17 @@
  */
 namespace boolive\basic\controller;
 
+use boolive\core\commands\Commands;
 use boolive\core\data\Entity;
 
 class controller extends Entity
 {
-    function start()
+    function start($input, Commands $commands)
     {
-        if ($this->startCheck()){
+        if ($this->startCheck($input, $commands)){
             ob_start();
                 // Выполнение своей работы
-                $result = $this->work();
+                $result = $this->work(array(), $input, $commands);
                 if (!($result === false || is_array($result))){
                     $result = ob_get_contents().$result;
                 }
@@ -25,12 +26,12 @@ class controller extends Entity
         return false;
     }
 
-    function startCheck()
+    function startCheck($input, Commands $commands)
     {
         return true;
     }
 
-    function work()
+    function work($v, $input, Commands $commands)
     {
         return $this->uri();
     }

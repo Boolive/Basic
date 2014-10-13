@@ -1,0 +1,7 @@
+{
+    "proto": "/vendor/boolive/basic/controller",
+    "properties": {
+        "title": "Группа контроллеров",
+        "description": "Группа последовательно исполняющихся контроллеров"
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "proto": "/vendor/boolive/basic/controller",
+    "is_file": true,
+    "value": "widget.tpl",
+    "is_default_value": false,
+    "is_default_logic": false,
+    "properties": {
+        "title": "Виджет",
+        "description": "Элемент пользовательского интерфейса. Отображает данные с помощью шаблонизации",
+        "res":{
+            "proto": "/vendor/boolive/basic/controller_group",
+            "properties": {
+                "title": "Ресурсы",
+                "description": "Автоматически подключаемые js, css и другие ресурсы"
+            }
+        }
+    }
+}
