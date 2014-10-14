@@ -15,6 +15,6 @@ class widget extends controller
 {
     function work($v, $input, Commands $commands)
     {
-        return Template::render($this->file(), $v);
+        return Template::render($this->file(null, true), $v);
     }
 }
