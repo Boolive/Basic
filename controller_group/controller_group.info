@@ -1,5 +1,6 @@
 {
     "proto": "/vendor/boolive/basic/controller",
+    "is_default_logic": false,
     "properties": {
         "title": "Группа контроллеров",
         "description": "Группа последовательно исполняющихся контроллеров"

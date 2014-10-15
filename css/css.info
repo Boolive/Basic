@@ -1,0 +1,10 @@
+{
+    "value": "css.css",
+    "is_file": true,
+    "proto": "/vendor/boolive/basic/controller",
+    "is_default_logic": false,
+    "properties": {
+        "title": "CSS",
+        "description": "Каскадная таблица стилей для оформления HTML-документа"
+    }
+}

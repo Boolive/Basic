@@ -7,6 +7,7 @@
 namespace boolive\basic\controller;
 
 use boolive\core\commands\Commands;
+use boolive\core\data\Data;
 use boolive\core\data\Entity;
 
 class controller extends Entity
@@ -34,5 +35,38 @@ class controller extends Entity
     function work($v, $input, Commands $commands)
     {
         return $this->uri();
+    }
+
+    /**
+     * Запуск всех подчиненных объектов
+     * @param array $input Входящие данные
+     * @param Commands $commands Входящие и исходящие команды для исполнения контроллерами
+     * @param bool $all Признак, запускать все подчиенные (true), или пока не возвратится результат от одного из запущенных (false)
+     * @param array $result Значения-заглушки для подчиненных видов. Если в массиве есть ключ с именем вида, то этот вид не исполняется, а испольщуется указанное в элементе значение.
+     * @return array Результаты подчиненных объектов. Ключи массива - названия объектов.
+     */
+    function startChildren($input, $commands, $all = true, $result = array())
+    {
+        $list = Data::find([
+            'select' => 'children',
+            'from' => $this,
+            'key' => 'name',
+            'order' => ['order','asc']
+        ]);
+        foreach ($list as $child) {
+            //$child = $child->linked(true);
+            if ($child instanceof controller) {
+                $key = $child->name();
+                if (!isset($result[$key])) {
+                    $out = $child->start($input, $commands);
+                    if ($out !== false) {
+                        $result[$key] = $out;
+                        $input['previous'] = true;
+                        if (!$all) return $result;
+                    }
+                }
+            }
+        }
+        return $result;
     }
 }
