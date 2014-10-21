@@ -1,0 +1,18 @@
+{
+    "value": "javascript.js",
+    "is_file": true,
+    "proto": "/vendor/boolive/basic/controller",
+    "is_default_logic": false,
+    "properties": {
+        "title": "JavaScript",
+        "description": "Скрипт на языке JavaScript, исполняемый в браузере",
+        "depends": {
+            "proto": "/vendor/boolive/basic/controller_group",
+            "is_mandatory": true,
+            "property": {
+                "title": "Используемые скрипты",
+                "description": "Скрипты и любые другие объекты, необходиыме для работы"
+            }
+        }
+    }
+}

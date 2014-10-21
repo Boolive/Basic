@@ -9,6 +9,8 @@ namespace boolive\basic\controller;
 use boolive\core\commands\Commands;
 use boolive\core\data\Data;
 use boolive\core\data\Entity;
+use boolive\core\values\Check;
+use boolive\core\values\Rule;
 
 class controller extends Entity
 {
@@ -27,9 +29,15 @@ class controller extends Entity
         return false;
     }
 
+    function startRule()
+    {
+        return Rule::null()->ignore('null');
+    }
+
     function startCheck($input, Commands $commands)
     {
-        return true;
+        $filtered = Check::filter($input, $this->startRule(), $this->_errors);
+        return !isset($error);
     }
 
     function work($v, $input, Commands $commands)
