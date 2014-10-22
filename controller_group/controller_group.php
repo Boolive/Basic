@@ -7,12 +7,12 @@
 namespace boolive\basic\controller_group;
 
 use boolive\basic\controller\controller;
-use boolive\core\commands\Commands;
+use boolive\core\request\Request;
 
 class controller_group extends controller
 {
-    function work($v, $input, Commands $commands)
+    function work($v, Request $request)
     {
-        return $this->startChildren($input, $commands);
+        return $this->startChildren($request);
     }
 }

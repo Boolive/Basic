@@ -7,7 +7,7 @@
 namespace boolive\basic\javascript;
 
 use boolive\basic\controller\controller;
-use boolive\core\commands\Commands;
+use boolive\core\request\Request;
 
 class javascript extends controller
 {
@@ -18,17 +18,17 @@ class javascript extends controller
         return $rule;
     }
 
-    function work($v, $input, Commands $commands)
+    function work($v, Request $request)
     {
         // Исполнение зависимых объектов
-        $this->depends->linked()->start($input, $commands);
+        $this->depends->linked()->start($request);
         // Подключение скрипта прототипа - наследование скриптов
 //        if (($proto = $this->proto()) && ($proto instanceof self)){
 //            $proto->start($this->_commands, $this->_input);
 //        }
         // Подключение javascript файла
         if ($file = $this->file()){
-            $commands->htmlHead('script', array('type'=>'text/javascript', 'src'=>$file, 'text'=>''));
+            $request->htmlHead('script', array('type'=>'text/javascript', 'src'=>$file, 'text'=>''));
         }
     }
 }

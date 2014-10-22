@@ -6,27 +6,29 @@
  */
 namespace boolive\basic\controller;
 
-use boolive\core\commands\Commands;
 use boolive\core\data\Data;
 use boolive\core\data\Entity;
+use boolive\core\request\Request;
 use boolive\core\values\Check;
 use boolive\core\values\Rule;
 
 class controller extends Entity
 {
-    function start($input, Commands $commands)
+    function start(Request $request)
     {
-        if ($this->startCheck($input, $commands)){
+        $request->stash();
+        $result = false;
+        if ($this->startCheck($request)){
             ob_start();
                 // Выполнение своей работы
-                $result = $this->work(array(), $input, $commands);
+                $result = $this->work(array(), $request);
                 if (!($result === false || is_array($result))){
                     $result = ob_get_contents().$result;
                 }
             ob_end_clean();
-            return $result;
         }
-        return false;
+        $request->unstash();
+        return $result;
     }
 
     function startRule()
@@ -34,26 +36,25 @@ class controller extends Entity
         return Rule::null()->ignore('null');
     }
 
-    function startCheck($input, Commands $commands)
+    function startCheck(Request $request)
     {
-        $filtered = Check::filter($input, $this->startRule(), $this->_errors);
+        $filtered = Check::filter($request->getInput(), $this->startRule(), $this->_errors);
         return !isset($error);
     }
 
-    function work($v, $input, Commands $commands)
+    function work($v, Request $request)
     {
         return $this->uri();
     }
 
     /**
      * Запуск всех подчиненных объектов
-     * @param array $input Входящие данные
-     * @param Commands $commands Входящие и исходящие команды для исполнения контроллерами
+     * @param Request $request Входящие данные и команды для исполнения контроллерами
      * @param bool $all Признак, запускать все подчиенные (true), или пока не возвратится результат от одного из запущенных (false)
      * @param array $result Значения-заглушки для подчиненных видов. Если в массиве есть ключ с именем вида, то этот вид не исполняется, а испольщуется указанное в элементе значение.
      * @return array Результаты подчиненных объектов. Ключи массива - названия объектов.
      */
-    function startChildren($input, $commands, $all = true, $result = array())
+    function startChildren($request, $all = true, $result = array())
     {
         $list = Data::find([
             'select' => 'children',
@@ -66,10 +67,10 @@ class controller extends Entity
             if ($child instanceof controller) {
                 $key = $child->name();
                 if (!isset($result[$key])) {
-                    $out = $child->start($input, $commands);
+                    $out = $child->start($request);
                     if ($out !== false) {
                         $result[$key] = $out;
-                        $input['previous'] = true;
+                        $request->inputMix(['previous'=>true]);
                         if (!$all) return $result;
                     }
                 }

@@ -7,14 +7,14 @@
 namespace boolive\basic\css;
 
 use boolive\basic\controller\controller;
-use boolive\core\commands\Commands;
+use boolive\core\request\Request;
 
 class css extends controller
 {
-    function work($v, $input, Commands $commands)
+    function work($v, Request $request)
     {
         if ($file = $this->file()){
-            $commands->htmlHead('link', array('rel'=>"stylesheet", 'type'=>"text/css", 'href'=>$file));
+            $request->htmlHead('link', array('rel'=>"stylesheet", 'type'=>"text/css", 'href'=>$file));
         }
     }
 }

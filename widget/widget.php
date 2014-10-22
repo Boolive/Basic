@@ -7,16 +7,15 @@
 namespace boolive\basic\widget;
 
 use boolive\basic\controller\controller;
-use boolive\core\commands\Commands;
-use boolive\core\data\Data;
+use boolive\core\request\Request;
 use boolive\core\template\Template;
 
 class widget extends controller
 {
-    function work($v, $input, Commands $commands)
+    function work($v, Request $request)
     {
         $r = $this->res;
-        $r->start($input, $commands);
+        $r->start($request);
         return Template::render($this->file(null, true), $v);
     }
 }
