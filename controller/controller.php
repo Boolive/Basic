@@ -21,7 +21,7 @@ class controller extends Entity
         if ($this->startCheck($request)){
             ob_start();
                 // Выполнение своей работы
-                $result = $this->work(array(), $request);
+                $result = $this->work([], $request);
                 if (!($result === false || is_array($result))){
                     $result = ob_get_contents().$result;
                 }
@@ -38,8 +38,7 @@ class controller extends Entity
 
     function startCheck(Request $request)
     {
-        $filtered = Check::filter($request->getInput(), $this->startRule(), $this->_errors);
-        return !isset($error);
+        return $request->setFilter($this->startRule());
     }
 
     function work($v, Request $request)
@@ -54,7 +53,7 @@ class controller extends Entity
      * @param array $result Значения-заглушки для подчиненных видов. Если в массиве есть ключ с именем вида, то этот вид не исполняется, а испольщуется указанное в элементе значение.
      * @return array Результаты подчиненных объектов. Ключи массива - названия объектов.
      */
-    function startChildren($request, $all = true, $result = array())
+    function startChildren($request, $all = true, $result = [])
     {
         $list = Data::find([
             'select' => 'children',
@@ -70,7 +69,7 @@ class controller extends Entity
                     $out = $child->start($request);
                     if ($out !== false) {
                         $result[$key] = $out;
-                        $request->inputMix(['previous'=>true]);
+                        $request->mix(['previous'=>true]);
                         if (!$all) return $result;
                     }
                 }

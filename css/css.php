@@ -14,7 +14,7 @@ class css extends controller
     function work($v, Request $request)
     {
         if ($file = $this->file()){
-            $request->htmlHead('link', array('rel'=>"stylesheet", 'type'=>"text/css", 'href'=>$file));
+            $request->htmlHead('link', ['rel'=>"stylesheet", 'type'=>"text/css", 'href'=>$file]);
         }
     }
 }

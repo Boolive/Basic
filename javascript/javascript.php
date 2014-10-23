@@ -28,7 +28,7 @@ class javascript extends controller
 //        }
         // Подключение javascript файла
         if ($file = $this->file()){
-            $request->htmlHead('script', array('type'=>'text/javascript', 'src'=>$file, 'text'=>''));
+            $request->htmlHead('script', ['type'=>'text/javascript', 'src'=>$file, 'text'=>'']);
         }
     }
 }
