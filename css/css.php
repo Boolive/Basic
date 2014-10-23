@@ -11,7 +11,7 @@ use boolive\core\request\Request;
 
 class css extends controller
 {
-    function work($v, Request $request)
+    function work(Request $request)
     {
         if ($file = $this->file()){
             $request->htmlHead('link', ['rel'=>"stylesheet", 'type'=>"text/css", 'href'=>$file]);

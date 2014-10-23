@@ -18,7 +18,7 @@ class javascript extends controller
         return $rule;
     }
 
-    function work($v, Request $request)
+    function work(Request $request)
     {
         // Исполнение зависимых объектов
         $this->depends->linked()->start($request);

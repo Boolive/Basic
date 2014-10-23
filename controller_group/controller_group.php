@@ -11,7 +11,7 @@ use boolive\core\request\Request;
 
 class controller_group extends controller
 {
-    function work($v, Request $request)
+    function work(Request $request)
     {
         return $this->startChildren($request);
     }

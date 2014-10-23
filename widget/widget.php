@@ -12,10 +12,23 @@ use boolive\core\template\Template;
 
 class widget extends controller
 {
-    function work($v, Request $request)
+    function work(Request $request)
     {
-        $r = $this->res;
-        $r->start($request);
+        return $this->show([], $request);
+    }
+
+    /**
+     * Отображение виджета
+     * @param $v Значения для шаблона
+     * @param Request $request Объект запроса
+     * @return string Результат отображения (обычно html)
+     * @throws \boolive\core\errors\Error
+     */
+    function show($v, Request $request)
+    {
+        // Подключение ресурсов (css,js)
+        $this->res->start($request);
+        // Формирование вывода
         return Template::render($this->file(null, true), $v);
     }
 }

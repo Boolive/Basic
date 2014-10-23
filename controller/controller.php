@@ -21,7 +21,7 @@ class controller extends Entity
         if ($this->startCheck($request)){
             ob_start();
                 // Выполнение своей работы
-                $result = $this->work([], $request);
+                $result = $this->work($request);
                 if (!($result === false || is_array($result))){
                     $result = ob_get_contents().$result;
                 }
@@ -41,7 +41,7 @@ class controller extends Entity
         return $request->setFilter($this->startRule());
     }
 
-    function work($v, Request $request)
+    function work(Request $request)
     {
         return $this->uri();
     }
