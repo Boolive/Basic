@@ -1,0 +1,17 @@
+{
+    "proto": "/vendor/boolive/basic/object",
+    "properties": {
+        "title": "Страница",
+        "text": {
+            "proto": "/vendor/boolive/basic/HTMLText",
+            "is_mandatory": true,
+            "properties": {
+                "title": "Текст",
+                "description": "Текст с HTML форматированием и длиной до 65535 символов (64Кбайт)",
+            }
+        },
+        "description": {
+            "value": "Публикация на сайте - страница, статья, новость или другое"
+        },
+    }
+}
