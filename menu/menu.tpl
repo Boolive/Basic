@@ -3,15 +3,14 @@
     $print_items = function($items)use(&$print_items){
         foreach($items as $item){
             $active = $item['active']->int();
-            $class = $active==0? '' : ($active==1 ? 'active' : 'sub-active');
-            if ($class) $class = ' class="'.$class.'"';
-            echo '<li'.$class.'><a href="'.$item['url'].'">';
+            $class = $active==0? '' : ($active==1 ? 'is-active' : 'has-active');
+            echo '<li class="menu__item '.$class.'"><a class="menu__link" href="'.$item['url'].'">';
 //            if ($item['icon']->bool()){
-//                echo '<img src="'.$item['icon'].'" alt="">';
+//                echo '<img class="menu__icon" src="'.$item['icon'].'" alt="">';
 //            }
-            echo '<span>'.$item['title'].'</span></a>';
+            echo '<span class="menu__label">'.$item['title'].'</span></a>';
             if (isset($item['children'])){
-                echo '<ul>';
+                echo '<ul class="menu__sub">';
                 $print_items($item['children']);
                 echo '</ul>';
             }

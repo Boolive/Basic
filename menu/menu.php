@@ -22,12 +22,19 @@ class menu extends widget
         ));
     }
 
+    function startCheck(Request $request)
+    {
+//        if ($this->object->is_exists() && !$this->object->is_draft()){
+//            $request->mix(['REQUEST' => ['object' => $this->object]]);
+//        }
+        return parent::startCheck($request);
+    }
+
     function show($v, Request $request)
     {
         $v['title'] = $this->title->value();
-        trace($this->getItems([], $request));
         $v['items'] = array();
-//        $v['items'] = $this->itemsToArray($this->getItems([], $request), $request['REQUEST']['object']);
+        $v['items'] = $this->itemsToArray($this->getItems(['from'=>$this->object->linked()]), $request['REQUEST']['object']);
         return parent::show($v, $request);
     }
 
@@ -80,7 +87,7 @@ class menu extends widget
      * @param array $cond Услвоие выборки
      * @return array|Entity|mixed|null
      */
-    function getItems($cond = array(), Request $request)
+    function getItems($cond = array())
     {
 //        $is_list = $this->is->find(array('where'=>array('is_link','!=',0), 'group'=>true));
 //        foreach ($is_list as $key => $is){
@@ -88,7 +95,7 @@ class menu extends widget
 //        }
         $cond['select'] = 'children';
         $cond['struct'] = 'tree';
-        $cond['from'] = $request['REQUEST']['object'];
+        //$cond['from'] = $request['REQUEST']['object']->linked();
         //$cond['depth'] = array(1, 'max'); // выбрать из хранилища всё дерево меню
         $cond['where'] = array('all', array(
             array('attr', 'is_hidden', '=', 0),
@@ -99,6 +106,8 @@ class menu extends widget
         $cond['order'] = ['order','asc'];
 //        $cond['group'] = true; // Для выбранных объектов выполнять подвыборки
 //        $cond['cache'] = 2; // Кэшировать сущности
-        return Data::find($cond);
+        $items = Data::find($cond);
+        array_unshift($items, ['object' => $cond['from'],'sub'=>[]]);
+        return $items;
     }
 } 

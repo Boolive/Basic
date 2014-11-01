@@ -5,6 +5,10 @@
     "is_default_logic": false,
     "properties":{
         "title": "Меню",
-        "description": "Простое меню"
+        "description": "Простое меню",
+        "object": {
+            "proto": "/contents",
+            "is_link": true
+        }
     }
 }
