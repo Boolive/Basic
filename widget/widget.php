@@ -14,6 +14,8 @@ class widget extends controller
 {
     function work(Request $request)
     {
+        // Подключение ресурсов (css,js)
+        $this->res->start($request);
         return $this->show([], $request);
     }
 
@@ -26,8 +28,6 @@ class widget extends controller
      */
     function show($v, Request $request)
     {
-        // Подключение ресурсов (css,js)
-        $this->res->start($request);
         // Формирование вывода
         return Template::render($this->file(null, true), $v);
     }
