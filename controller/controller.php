@@ -47,20 +47,15 @@ class controller extends Entity
     }
 
     /**
-     * Запуск всех подчиненных объектов
-     * @param Request $request Входящие данные и команды для исполнения контроллерами
-     * @param bool $all Признак, запускать все подчиенные (true), или пока не возвратится результат от одного из запущенных (false)
-     * @param array $result Значения-заглушки для подчиненных видов. Если в массиве есть ключ с именем вида, то этот вид не исполняется, а испольщуется указанное в элементе значение.
-     * @return array Результаты подчиненных объектов. Ключи массива - названия объектов.
+     * Запуск подчиненных контроллеров
+     * @param Request $request Входящие данные и команды для обработки контроллерами
+     * @param bool $all Признак, запускать все контроллеры (true), или пока не возвратится результат хотябы от одного из запущенных (false)
+     * @param array $result Значения-заглушки для подчиненных контроллеров. Если в массиве есть ключ с именем контроллера, то этот контроллер не исполняется, а испольщуется указанное в элементе значение.
+     * @return array Результаты исполнения контроллеров. Ключи массива - названия контроллеров.
      */
     function startChildren($request, $all = true, $result = [])
     {
-        $list = Data::find([
-            'select' => 'children',
-            'from' => $this,
-            'key' => 'name',
-            'order' => ['order','asc']
-        ]);
+        $list = $this->getCihildrenControllers([], $request);
         foreach ($list as $child) {
             //$child = $child->linked(true);
             if ($child instanceof controller) {
@@ -76,5 +71,15 @@ class controller extends Entity
             }
         }
         return $result;
+    }
+
+    function getCihildrenControllers($cond = [], Request $request)
+    {
+        $cond = Data::unionCond($cond, [
+            'select' => 'children',
+            'from' => $this,
+            'order' => ['order','asc']
+        ]);
+        return Data::find($cond);
     }
 }

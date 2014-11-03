@@ -3,6 +3,14 @@
     "is_default_logic": false,
     "properties": {
         "title": "Группа контроллеров",
-        "description": "Группа последовательно исполняющихся контроллеров"
+        "description": "Группа последовательно исполняющихся контроллеров",
+        "start_all": {
+            "proto": "/vendor/boolive/basic/boolean",
+            "value": true,
+            "properties": {
+                "title": "Запускать всех",
+                "description": "Признак, запускать все контроллеры по порядку или до первого успешного исполнения?"
+            }
+        }
     }
 }

@@ -1,3 +1,3 @@
-<div class="widget widget_auto">99
-    <?= $v['views']->string(); ?>
+<div class="widget widget_auto">
+    <?=$v['views']->string()?>
 </div>
