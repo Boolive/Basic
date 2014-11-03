@@ -1,21 +1,14 @@
 {
     "value": "",
     "proto": "/vendor/boolive/basic/object",
-    "order": 27,
     "properties": {
-        "title": {
-            "value": "Файл"
-        },
-        "description": {
-            "value": "Объект, значением которого является файл. "
-        },
+        "title": "Файл",
+        "description": "Объект, значением которого является файл. ",
         "extentions": {
             "value": "*.*",
             "proto": "/vendor/boolive/basic/string",
             "properties": {
-                "title": {
-                    "value": "Допустимые расширения"
-                }
+                "title": "Допустимые расширения"
             }
         }
     }

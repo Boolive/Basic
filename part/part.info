@@ -1,0 +1,7 @@
+{
+    "proto": "/vendor/boolive/basic/object",
+    "properties": {
+        "title": "Раздел",
+        "description": "Сгруппированные публикации (страницы, статьи, новости)"
+    }
+}
