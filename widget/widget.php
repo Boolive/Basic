@@ -21,7 +21,7 @@ class widget extends controller
 
     /**
      * Отображение виджета
-     * @param $v Значения для шаблона
+     * @param array $v Значения для шаблона
      * @param Request $request Объект запроса
      * @return string Результат отображения (обычно html)
      * @throws \boolive\core\errors\Error

@@ -13,7 +13,7 @@ class widget_auto extends widget
 {
     function show($v, Request $request)
     {
-        $v['views'] = $this->views->start($request);
+        $v['views'] = implode("\n",$this->views->start($request));
         return parent::show($v, $request);
     }
 } 

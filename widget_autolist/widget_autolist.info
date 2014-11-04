@@ -1,0 +1,22 @@
+{
+    "proto": "/vendor/boolive/basic/widget",
+    "value": "widget_autolist.tpl",
+    "is_file": true,
+    "is_default_logic": false,
+    "properties": {
+        "title": "Виджет автоотображения списка объектов",
+        "description": "Отображает каждый объект из списка одним из подчиненных видом. Выбор вида выполняется по условию работы вида. ",
+        "res": {
+            "proto": "/vendor/boolive/basic/widget/res"
+        },
+        "views": {
+            "proto": "/vendor/boolive/basic/controller_group",
+            "is_mandatory": true,
+            "properties": {
+                "title": "Список видов",
+                "description": "Из этого списка автоматически выбирается один \"вид\" для отображения объекта",
+                "start_all": false
+            }
+        }
+    }
+}
