@@ -63,9 +63,9 @@ class controller extends Entity
                 if (!isset($result[$key])) {
                     $out = $child->start($request);
                     if ($out !== false) {
-                        $result[$key] = $out;
+                        if (!$all) return $out;
                         $request->mix(['previous'=>true]);
-                        if (!$all) return $result;
+                        $result[$key] = $out;
                     }
                 }
             }

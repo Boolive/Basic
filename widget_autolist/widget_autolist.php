@@ -29,7 +29,7 @@ class widget_autolist extends widget
         $i = 1;
         $v['views'] = array();
         if (is_array($list)){
-            $views = $this->views->linked();
+            $views = $this->linked()->views->linked();
             foreach ($list as $key => $child_object){
                 $request->mix(['REQUEST'=> ['object' => $child_object]]);
                 $request->mix(['REQUEST'=> ['number' => $i]]);
