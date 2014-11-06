@@ -2,6 +2,13 @@
     "proto": "/vendor/boolive/basic/object",
     "properties": {
         "title": "Раздел",
-        "description": "Сгруппированные публикации (страницы, статьи, новости)"
+        "description": "Сгруппированные публикации (страницы, статьи, новости)",
+        "menu":{
+            "proto": "/vendor/boolive/basic/boolean",
+            "value": true,
+            "properties":{
+                "title": "Показывать в меню"
+            }
+        }
     }
 }

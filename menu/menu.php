@@ -102,6 +102,7 @@ class menu extends widget
             array('attr', 'is_draft', '=', 0),
 //            array('attr', 'is_property', '=', 0),
 //            array('is', $is_list)
+            array('child', 'menu',['value','=',true])
         ));
         $cond['order'] = ['order','asc'];
 //        $cond['group'] = true; // Для выбранных объектов выполнять подвыборки
