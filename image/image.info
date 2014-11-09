@@ -1,6 +1,5 @@
 {
-    "value": "image.png",
-    "is_file": true,
+    "file": "image.png",
     "proto": "/vendor/boolive/basic/file",
     "order": 28,
     "properties": {

@@ -1,8 +1,7 @@
 {
-    "value": "javascript.js",
-    "is_file": true,
+    "file": "javascript.js",
     "proto": "/vendor/boolive/basic/controller",
-    "is_default_logic": false,
+    "logic": true,
     "properties": {
         "title": "JavaScript",
         "description": "Скрипт на языке JavaScript, исполняемый в браузере",

@@ -3,7 +3,7 @@
     "properties": {
         "title": "Страница",
         "text": {
-            "proto": "/vendor/boolive/basic/HTMLText",
+            "proto": "/vendor/boolive/basic/text",
             "is_mandatory": true,
             "properties": {
                 "title": "Текст",

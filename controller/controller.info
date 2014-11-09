@@ -1,7 +1,7 @@
 {
     "proto": "/vendor/boolive/basic/object",
-    "is_default_logic": false,
-    "properties": {
+    "logic": true,
+    "props": {
         "title": "Контроллер",
         "description": "Обрабатывает запросы"
     }

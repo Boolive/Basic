@@ -1,7 +1,7 @@
 {
     "value": false,
     "proto": "/vendor/boolive/basic/object",
-    "is_default_logic": false,
+    "logic": true,
     "properties": {
         "title": "Булево",
         "description": "Логическое значение ДА или НЕТ"

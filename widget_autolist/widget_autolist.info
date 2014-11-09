@@ -1,8 +1,7 @@
 {
     "proto": "/vendor/boolive/basic/widget",
-    "value": "widget_autolist.tpl",
-    "is_file": true,
-    "is_default_logic": false,
+    "file": "widget_autolist.tpl",
+    "logic": true,
     "properties": {
         "title": "Виджет автоотображения списка объектов",
         "description": "Отображает каждый объект из списка одним из подчиненных видом. Выбор вида выполняется по условию работы вида. ",

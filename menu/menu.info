@@ -1,8 +1,7 @@
 {
     "proto": "/vendor/boolive/basic/widget",
-    "value": "menu.tpl",
-    "is_file": true,
-    "is_default_logic": false,
+    "file": "menu.tpl",
+    "logic": true,
     "properties":{
         "title": "Меню",
         "description": "Простое меню",
