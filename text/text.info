@@ -2,6 +2,7 @@
     "value": "",
     "proto": "/vendor/boolive/basic/object",
     "order": 11,
+    "logic": true,
     "properties": {
         "title": "Текст",
         "description": "Строковое значение длиной до 65535 символа (64Кбайт)"
