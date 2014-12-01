@@ -6,6 +6,7 @@
  */
 namespace boolive\basic\controller;
 
+use boolive\core\config\Config;
 use boolive\core\data\Data;
 use boolive\core\data\Entity;
 use boolive\core\request\Request;
@@ -55,9 +56,16 @@ class controller extends Entity
      */
     function startChildren($request, $all = true, $result = [])
     {
+
         $list = $this->getCihildrenControllers([], $request);
+        $config = Config::read('collections');
+        if (isset($config[$this->uri().'.startChildren'])) {
+            foreach ($config[$this->uri().'.startChildren'] as $item) {
+                array_unshift($list, Data::read($item));
+            }
+        }
         foreach ($list as $child) {
-            //$child = $child->linked(true);
+            $child = $child->linked();
             if ($child instanceof controller) {
                 $key = $child->name();
                 if (!isset($result[$key])) {
