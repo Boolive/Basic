@@ -1,0 +1,12 @@
+{
+    "proto": "/vendor/boolive/basic/widget",
+    "file": "layout.tpl",
+    "order": 3,
+    "logic": true,
+    "properties":{
+        "title": "Макет",
+        "res":{
+            "proto": "/vendor/boolive/basic/widget/res"
+        }
+    }
+}
