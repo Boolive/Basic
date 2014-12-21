@@ -1,0 +1,8 @@
+{
+    "proto": "/vendor/boolive/basic/object",
+    "is_logic": true,
+    "properties": {
+        "title": "Действие",
+        "description": "Определяет условие соверешения действия"
+    }
+}

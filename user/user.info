@@ -1,0 +1,42 @@
+{
+    "proto": "/vendor/boolive/basic/object",
+    "logic": true,
+    "properties": {
+        "title": "Пользователь",
+        "description": "Посетитель сайта и информация о нём",
+        "password": {
+            "proto": "/vendore/boolive/basic/object",
+            "value": "123456",
+            "properties": {
+                "title": "Пароль"
+            }
+        },
+        "email": {
+            "proto": "/vendore/boolive/basic/object",
+            "value": "@",
+            "properties": {
+                "title": "Email"
+            }
+        },
+        "time_visit": {
+            "proto": "/vendore/boolive/basic/object",
+            "value": "123456",
+            "properties": {
+                "title": "Время посещения"
+            }
+        },
+        "avatar":{
+            "proto": "/vendore/boolive/basic/image",
+            "file": "avatar.png",
+            "properties": {
+                "title": "Автарка"
+            }
+        },
+        "rights":{
+            "proto": "/vendore/boolive/basic/object",
+            "properties": {
+                "title": "Роли и права доступа"
+            }
+        }
+    }
+}
