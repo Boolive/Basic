@@ -6,9 +6,11 @@
  */
 namespace boolive\basic\controller;
 
+use boolive\core\auth\Auth;
 use boolive\core\config\Config;
 use boolive\core\data\Data;
 use boolive\core\data\Entity;
+use boolive\core\errors\Error;
 use boolive\core\request\Request;
 use boolive\core\values\Check;
 use boolive\core\values\Rule;
@@ -20,6 +22,10 @@ class controller extends Entity
         $request->stash();
         $result = false;
         if ($this->startCheck($request)){
+            if (!Auth::get_user()->check_access('start', $this)){
+                throw new Error(['Нет доступа на запуск контроллера "%s"', $this->uri()], 403);
+                //throw new Error(['Нет доступа на запуск контроллера "%s"', $this->uri()], 404);
+            }
             ob_start();
                 // Выполнение своей работы
                 $result = $this->work($request);

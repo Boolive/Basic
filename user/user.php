@@ -13,7 +13,11 @@ class user extends Entity
 
     public function check_access($action, $object)
     {
-
+        if ($action == 'start' && $object->name() == 'admin'){
+            return false;
+        }else{
+            return true;
+        }
     }
 
 
