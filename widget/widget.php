@@ -28,6 +28,7 @@ class widget extends controller
      */
     function show($v, Request $request)
     {
+        $v['controller'] = $this->uri();
         // Формирование вывода
         return Template::render($this->file(null, true), $v);
     }
