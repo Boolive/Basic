@@ -32,7 +32,7 @@ class layout extends widget
             'keywords' => array(),
         );
         $uniq = array();
-        foreach ($request->getCommands('htmlHead') as $com){
+        foreach ($request->getCommands('htmlHead', true) as $com){
             if ($com[0]=='title'){
                 $v['meta'][$com[0]][] = $com[1]['text'];
             }else

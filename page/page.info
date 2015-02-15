@@ -1,7 +1,10 @@
 {
     "proto": "/vendor/boolive/basic/object",
     "properties": {
-        "title": "Страница",
+        "title": {
+            "value": "Страница",
+            "is_mandatory": true
+        },
         "text": {
             "proto": "/vendor/boolive/basic/text",
             "is_mandatory": true,
@@ -10,10 +13,14 @@
                 "description": "Текст с HTML форматированием и длиной до 65535 символов (64Кбайт)"
             }
         },
-        "description": "Публикация на сайте - страница, статья, новость или другое",
+        "description": {
+            "value": "Публикация на сайте - страница, статья, новость или другое",
+            "is_mandatory": true
+        },
         "menu":{
             "proto": "/vendor/boolive/basic/boolean",
             "value": true,
+            "is_mandatory": true,
             "properties":{
                 "title": "Показывать в меню"
             }

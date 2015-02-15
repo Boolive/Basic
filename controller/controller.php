@@ -62,7 +62,6 @@ class controller extends Entity
      */
     function startChildren($request, $all = true, $result = [])
     {
-
         $list = $this->getCihildrenControllers([], $request);
         $config = Config::read('collections');
         if (isset($config[$this->uri().'.startChildren'])) {

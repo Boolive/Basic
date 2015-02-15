@@ -108,7 +108,9 @@ class menu extends widget
 //        $cond['group'] = true; // Для выбранных объектов выполнять подвыборки
 //        $cond['cache'] = 2; // Кэшировать сущности
         $items = Data::find($cond);
-        array_unshift($items, ['object' => $cond['from'],'sub'=>[]]);
+        if ($cond['from']->menu->value()) {
+            array_unshift($items, ['object' => $cond['from'], 'sub' => []]);
+        }
         return $items;
     }
-} 
+}
