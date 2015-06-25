@@ -25,12 +25,12 @@ class widget_autolist extends widget
     function show($v, Request $request)
     {
         $object = $request['REQUEST']['object'];
-        $list = $this->getList($request);
+        $v['list'] = is_array($v['list']) ? $v['list'] : $this->getList($request);
         $i = 1;
         $v['views'] = array();
-        if (is_array($list)){
+        if (is_array($v['list'])){
             $views = $this->linked()->views->linked();
-            foreach ($list as $key => $child_object){
+            foreach ($v['list'] as $key => $child_object){
                 $request->mix(['REQUEST'=> ['object' => $child_object]]);
                 $request->mix(['REQUEST'=> ['number' => $i]]);
                 $out = $views->start($request);
