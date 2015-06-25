@@ -44,7 +44,7 @@ class widget_autolist extends widget
         return parent::show($v, $request);
     }
 
-    function getList(Request $request, $cond = [])
+    function getList(Request $request, &$cond = [])
     {
         $cond = Data::unionCond($cond, [
             'from' => $request['REQUEST']['object'],
