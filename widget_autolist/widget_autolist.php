@@ -25,7 +25,7 @@ class widget_autolist extends widget
     function show($v, Request $request)
     {
         $object = $request['REQUEST']['object'];
-        $v['list'] = is_array($v['list']) ? $v['list'] : $this->getList($request);
+        $v['list'] = isset($v['list']) ? $v['list'] : $this->getList($request);
         $i = 1;
         $v['views'] = array();
         if (is_array($v['list'])){
