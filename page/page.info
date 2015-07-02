@@ -3,11 +3,17 @@
     "properties": {
         "title": {
             "value": "Страница",
-            "is_mandatory": true
+            "is_mandatory": true,
+            "order":1,
+            "properties": {
+                "title": "Название",
+                "description": ""
+            }
         },
         "text": {
             "proto": "/vendor/boolive/basic/text",
             "is_mandatory": true,
+            "order":2,
             "properties": {
                 "title": "Текст",
                 "description": "Текст с HTML форматированием и длиной до 65535 символов (64Кбайт)"
@@ -15,12 +21,18 @@
         },
         "description": {
             "value": "Публикация на сайте - страница, статья, новость или другое",
-            "is_mandatory": true
+            "is_mandatory": true,
+            "order":3,
+            "properties": {
+                "title": "Описание",
+                "description": "Короткое описание"
+            }
         },
         "menu":{
             "proto": "/vendor/boolive/basic/boolean",
             "value": true,
             "is_mandatory": true,
+            "order":4,
             "properties":{
                 "title": "Показывать в меню"
             }

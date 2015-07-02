@@ -1,13 +1,38 @@
 {
     "proto": "/vendor/boolive/basic/object",
+    "order": 0,
     "properties": {
-        "title": "Раздел",
-        "description": "Сгруппированные публикации (страницы, статьи, новости)",
-        "menu":{
+        "title": {
+            "proto": "/vendor/boolive/basic/object/title",
+            "order": 1,
+            "value": "Раздел",
+            "is_mandatory": true,
+            "properties": {
+                "title": "Название"
+            }
+        },
+        "description": {
+            "proto": "/vendor/boolive/basic/object/description",
+            "order": 2,
+            "value": "Сгруппированные публикации (страницы, статьи, новости)",
+            "is_mandatory": true,
+            "properties": {
+                "title": "Короткое описание"
+            }
+        },
+        "menu": {
             "proto": "/vendor/boolive/basic/boolean",
             "value": true,
-            "properties":{
+            "is_mandatory": true,
+            "properties": {
                 "title": "Показывать в меню"
+            }
+        },
+        "icon": {
+            "proto": "/vendor/boolive/basic/object/icon",
+            "is_draft": true,
+            "properties": {
+                "title": "Иконка"
             }
         }
     }
