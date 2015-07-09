@@ -1,0 +1,28 @@
+{
+    "proto": "/vendor/boolive/basic/object",
+    "order": 0,
+    "value": 0,
+    "logic": true,
+    "properties": {
+        "unit": {
+            "proto": "/vendor/boolive/basic/string",
+            "order": 0,
+            "properties": {
+                "description": {
+                    "value": "Строковое значение длиной до 255 символов",
+                    "proto": "/vendor/boolive/basic/string/description"
+                },
+                "title": {
+                    "value": "Единица измерения",
+                    "proto": "/vendor/boolive/basic/string/title"
+                }
+            }
+        },
+        "icon": {
+            "proto": "/vendor/boolive/basic/object/icon",
+            "is_draft": true
+        },
+        "description": "Числовое значение любой величины с единицей измерения",
+        "title": "Число"
+    }
+}

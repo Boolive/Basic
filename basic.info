@@ -1,0 +1,7 @@
+{
+    "proto": "/vendor/boolive/basic/package",
+    "properties": {
+        "title": "Базовые",
+        "description": "Коллекция базовых объектов"
+    }
+}

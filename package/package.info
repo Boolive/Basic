@@ -1,0 +1,21 @@
+{
+    "proto": "/vendor/boolive/basic/object",
+    "order": 0,
+    "properties": {
+        "title": {
+            "proto": "/vendor/boolive/basic/object/title",
+            "order": 1,
+            "value": "Базовые",
+            "is_mandatory": true
+        },
+        "description": {
+            "proto": "/vendor/boolive/basic/object/description",
+            "order": 2,
+            "value": "Коллекция базовых объектов"
+        },
+        "icon": {
+            "proto": "/vendor/boolive/basic/object/icon",
+            "is_draft": true
+        }
+    }
+}
