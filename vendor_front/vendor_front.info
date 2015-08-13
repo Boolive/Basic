@@ -1,0 +1,37 @@
+{
+    "proto": "/vendor/boolive/basic/controller",
+    "order": 0,
+    "logic": true,
+    "properties": {
+        "description": {
+            "proto": "/vendor/boolive/basic/controller/description",
+            "order": 2,
+            "value": "Сторонняя библиотека js/css, подключаемая спомощью bower"
+        },
+        "title": {
+            "proto": "/vendor/boolive/basic/controller/title",
+            "order": 1,
+            "value": "Библиотека js/css"
+        },
+        "version": {
+            "proto": "/vendor/boolive/basic/string",
+            "order": 3,
+            "value": "*",
+            "is_mandatory": true,
+            "properties": {
+                "description": "Условие наверсию, например *, ~1.0.0, >=2.3.*",
+                "title": "Версия"
+            }
+        },
+        "import": {
+            "proto": "/vendor/boolive/basic/string",
+            "order": 4,
+            "value": "",
+            "is_mandatory": true,
+            "properties": {
+                "description": "Файлы библиотеки через точку с запятой, которыенужно подключить в html",
+                "title": "Подключаемые файлы js/css"
+            }
+        }
+    }
+}
