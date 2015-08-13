@@ -18,7 +18,7 @@ class vendor_front extends controller
         $name = $this->name();
         $version = $this->version->value();
         if (!is_dir(DIR.'vendor_front/'.$name)){
-            CLI::run_php('bowerphp.phar install --save '.$name.'#'.$version, false);
+            CLI::run_php('bowerphp.phar install --save '.$name.'#'.$version, false, true);
         }
         $files = explode(';',$this->import->value());
         if ($file = $this->file()) $files[] = $file;
