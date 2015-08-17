@@ -14,7 +14,7 @@ class javascript extends controller
     protected function rule()
     {
         $rule = parent::rule();
-        $rule->arrays[0]['file']->arrays[0]['name']->ospatterns('*.js');
+//        $rule->arrays[0]['file']->arrays[0]['name']->ospatterns('*.js');
         return $rule;
     }
 
