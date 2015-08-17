@@ -7,6 +7,7 @@
         "description": "Элемент пользовательского интерфейса. Отображает данные с помощью шаблонизации",
         "res":{
             "proto": "/vendor/boolive/basic/controller_group",
+            "is_mandatory": true,
             "properties": {
                 "title": "Ресурсы",
                 "description": "Автоматически подключаемые js, css и другие ресурсы"
