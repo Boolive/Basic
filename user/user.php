@@ -20,6 +20,10 @@ class user extends Entity
 //        }
     }
 
+    protected  function checkChild(Entity $entity){
+        return true;
+    }
+
 
     public function get_access_condition($action, $object)
     {
