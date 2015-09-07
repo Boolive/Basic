@@ -65,7 +65,8 @@ class controller extends Entity
         $list = $this->getCihildrenControllers([], $request);
         $config = Config::read('collections');
         if (isset($config[$this->uri().'.startChildren'])) {
-            foreach ($config[$this->uri().'.startChildren'] as $item) {
+            $children = array_reverse($config[$this->uri().'.startChildren']);
+            foreach ($children as $item) {
                 array_unshift($list, Data::read($item));
             }
         }
