@@ -18,20 +18,25 @@ class group extends member
     private static $config;
 
     function checkChild(user $user){
-         self::$config = Config::read('auth');
-         $result = Data::find(array(
+        self::$config = Config::read('auth');
+        $where =  [
+            ['child', 'email',
+                ['value',  '=', $user->email->value()],
+            ]
+        ];
+        if ($user->is_exists()){
+            $where[] = ['uri', '!=', $user->uri()];
+        }
+
+        $result = Data::find(array(
                  'from' => self::$config['users-list'],
                  'select' => 'children',
                  'depth' => 'max',
-                 'where' => array(
-                 ['child', 'email',
-                    array('value',  '=', $user->email->value()),
-                  ],
-                  ),
+                 'where' => $where,
                  'key' => false,
                  'limit' => array(0, 1),
                  'comment' => 'search if user already exist',
-                      ), false);
+         ), false);
             if(!empty($result)){
                 $user->errors()->_children->email->_attributes->value->dublicate = 'Email не уникален';
                 return false;
