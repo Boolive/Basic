@@ -1,18 +1,20 @@
 <?php
 /**
  * Макет
- * @aurhor Vladimir Shestakov
+ * @author Vladimir Shestakov
  * @version 1.0
  */
 namespace boolive\basic\layout;
 
 use boolive\basic\widget\widget;
+use boolive\basic\widget_auto\widget_auto;
 use boolive\core\request\Request;
 
-class layout extends widget
+class layout extends widget_auto
 {
     function show($v, Request $request)
     {
+        $v['views'] = $this->views->start($request);
         // Обработка своих команд для вставки тегов в заголовок HTML
         if ($redirect = $request->getCommands('redirect')){
             header('Location: '.$redirect[0][0]);
@@ -62,6 +64,6 @@ class layout extends widget
             }
         }
         $v['head'].=$js;
-        return parent::show($v, $request);
+        return widget::show($v, $request);
     }
 }

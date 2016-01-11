@@ -8,6 +8,7 @@
     <?php echo $v['head']->string(); ?>
 </head>
 <body>
+    <?=$v['views']->string()?>
     <?php if (GLOBAL_TRACE){
         \boolive\core\develop\Trace::groups()->group('Benchmark')->set(\boolive\core\develop\Benchmark::stop('all', true));
         \boolive\core\develop\Trace::groups()->out();
